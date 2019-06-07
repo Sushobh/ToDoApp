@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/addtask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.addtask.AddTaskFragment">
+
+    <EditText
+            android:layout_marginBottom="@dimen/add_task_element_bottom_margin"
+            android:gravity="top"
+            android:hint="@string/type_task_name"
+            app:layout_constraintBottom_toTopOf="@+id/select_date_picker"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/task_name"
+            android:layout_width="match_parent"
+              android:layout_height="0dp"/>
+
+    <EditText
+            android:layout_marginBottom="@dimen/add_task_element_bottom_margin"
+            android:focusable="false"
+            android:id="@+id/select_date_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select date"
+            app:layout_constraintBottom_toTopOf="@id/button_add_task"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+          />
+
+    <Button
+            android:layout_marginBottom="@dimen/add_task_element_bottom_margin"
+            android:focusable="false"
+            android:id="@+id/button_add_task"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add_task"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,21 +14,14 @@ import retrofit2.Retrofit
 
 import javax.inject.Inject
 
-class MainModel : BaseModel {
-
-
-    @Inject
-    lateinit var retrofit : Retrofit;
-
-    @Inject
-    lateinit var appDatabase: AppDatabase
+class MainModel : BaseModel() {
 
 
 
-    constructor() {
-        DaggerModelBuilder.builder().retrofitModule(RetrofitModule(BASE_URL)).build().inject(this)
 
-    }
+
+
+
 
       fun getGooglePage() : GooglePageApi {
         return retrofit.create(GooglePageApi::class.java);
