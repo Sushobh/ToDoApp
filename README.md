@@ -1,6 +1,7 @@
 # ToDoApp
 A To Do App built with Firebase firestore. Add new tasks by clicking 
-on the round add button and tap on tasks to change the status to COMPLETED/PENDING!
+on the round add button and tap on tasks to change the status to COMPLETED/PENDING! [Download APK](https://raw.github.com/Sushobh/ToDoApp/master/TO_DO_APP.apk) 
+
 
 # Screenshots
 
