@@ -29,15 +29,19 @@ class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.MyViewHolder> {
     }
 
     override fun getItemCount(): Int {
-       return 0
+       return tasks.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        var task = tasks[position]
+
+        holder.tvTaskDate.text = task.taskDateToDislplay
+        holder.tvTaskStatus.text = task.statusToDisplay
+        holder.tvTaskName.text = task.name
     }
 
 
-    class MyViewHolder: RecyclerView.ViewHolder {
+    inner class MyViewHolder: RecyclerView.ViewHolder {
 
 
             @BindView(R.id.task_name)
@@ -56,6 +60,9 @@ class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.MyViewHolder> {
 
             constructor(itemView: View) : super(itemView){
                ButterKnife.bind(this,itemView)
+                itemView.setOnClickListener({
+                    mainViewModel.clickedOnTask(adapterPosition)
+                })
             }
         }
 

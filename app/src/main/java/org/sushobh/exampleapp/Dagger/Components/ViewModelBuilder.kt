@@ -17,4 +17,5 @@ import javax.inject.Singleton
 interface ViewModelBuilder {
 
     fun inject(baseViewModel: AddTaskViewModel) ;
+    fun inject(baseViewModel: MainViewModel) ;
 }

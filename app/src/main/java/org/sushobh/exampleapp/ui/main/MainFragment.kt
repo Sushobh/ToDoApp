@@ -6,11 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import org.sushobh.exampleapp.Adapters.TaskListAdapter
 import org.sushobh.exampleapp.AddTaskActivity
 import org.sushobh.exampleapp.Base.BaseFragment
+import org.sushobh.exampleapp.Entity.ToDoTask
 import org.sushobh.exampleapp.MainActivity
 import org.sushobh.exampleapp.R
 import org.sushobh.exampleapp.ui.addtask.AddTaskPresenter
@@ -25,6 +30,11 @@ class MainFragment : BaseFragment<MainViewModel>() {
     @BindView(R.id.new_task)
     lateinit var btNewTask : FloatingActionButton
 
+    @BindView(R.id.list_view)
+    lateinit var listView : RecyclerView
+
+
+    var tasks : ArrayList<ToDoTask> = ArrayList<ToDoTask>()
 
 
     override fun onCreateView(
@@ -40,6 +50,10 @@ class MainFragment : BaseFragment<MainViewModel>() {
                 viewModel.clickedOnAddNewTask()
             }
         )
+
+        listView.layoutManager = LinearLayoutManager(activity)
+
+
         return rootView
     }
 
@@ -48,10 +62,18 @@ class MainFragment : BaseFragment<MainViewModel>() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         viewModel.presenter = MainPresenter(activity as MainActivity,viewModel)
         viewModel.init()
+        listView.adapter = TaskListAdapter(tasks,viewModel)
+        viewModel.taskLiveData.observe(this,object : Observer<List<ToDoTask>>{
+            override fun onChanged(t: List<ToDoTask>?) {
+               tasks.clear()
+               t?.forEach {
+                 tasks.add(it)
+               }
+                listView.adapter?.notifyDataSetChanged()
+            }
+
+        })
     }
-
-
-
 
 
 }

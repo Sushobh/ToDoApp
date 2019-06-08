@@ -40,7 +40,7 @@ class AddTaskViewModel : BaseViewModel<AddTaskPresenter>() {
         else {
              presenter?.showProgressDialog()
              taskModel.addTask(ToDoTask(currentTaskNameInput,currentDateInput,userModel.getLoggedInUser().id,
-                 true,"null",false))
+                 true,"null",false,null,null))
                  .
                  addOnFailureListener {
                  presenter?.toast("Failed to save task!")
