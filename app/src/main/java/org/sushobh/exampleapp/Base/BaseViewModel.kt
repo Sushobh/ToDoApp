@@ -7,7 +7,7 @@ import org.sushobh.exampleapp.Models.TaskModel
 import org.sushobh.exampleapp.Models.UserModel
 import javax.inject.Inject
 
-abstract class BaseViewModel<T : BasePresenter<out BaseActivity>> : ViewModel {
+abstract class BaseViewModel<T>: ViewModel {
 
 
 
@@ -22,10 +22,25 @@ abstract class BaseViewModel<T : BasePresenter<out BaseActivity>> : ViewModel {
     @Inject
     lateinit var taskModel : TaskModel;
 
-    var presenter : T? = null;
+    var presenter : T? = null
+
+    open fun init(){
+
+    }
+
+    open fun onResume() {
+
+    }
+
+    open fun onPause() {
+
+    }
+
 
     constructor(){
 
     }
+
+
 
 }

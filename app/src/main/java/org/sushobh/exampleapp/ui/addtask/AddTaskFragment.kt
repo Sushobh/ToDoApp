@@ -13,15 +13,14 @@ import android.widget.EditText
 import butterknife.BindView
 import butterknife.ButterKnife
 import org.sushobh.exampleapp.AddTaskActivity
+import org.sushobh.exampleapp.Base.BaseFragment
 import org.sushobh.exampleapp.R
 
-class AddTaskFragment : Fragment() {
+class AddTaskFragment : BaseFragment<AddTaskViewModel>() {
 
     companion object {
         fun newInstance() = AddTaskFragment()
     }
-
-
 
     @BindView(R.id.select_date_picker)
     lateinit var  selectDatePicker : EditText
@@ -33,7 +32,7 @@ class AddTaskFragment : Fragment() {
     @BindView(R.id.button_add_task)
     lateinit var btAddTask : Button
 
-    private lateinit var viewModel: AddTaskViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -73,7 +72,7 @@ class AddTaskFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(AddTaskViewModel::class.java)
         viewModel.presenter = AddTaskPresenter(activity as AddTaskActivity,viewModel)
-        // TODO: Use the ViewModel
+        viewModel.init()
     }
 
 }

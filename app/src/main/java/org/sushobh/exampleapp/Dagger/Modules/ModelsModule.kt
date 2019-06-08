@@ -28,7 +28,4 @@ class ModelsModule {
         return TaskModel();
     }
 
-
-
-
 }

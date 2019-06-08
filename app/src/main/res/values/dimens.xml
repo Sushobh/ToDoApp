@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="add_task_element_bottom_margin">10dp</dimen>
+    <dimen name="floating_action_button_margin">10dp</dimen>
+    <dimen name="add_task_fragment_margin">15dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
+    <dimen name="card_margin">10dp</dimen>
+    <dimen name="task_card_divider_margin_bottom">5dp</dimen>
 </resources>

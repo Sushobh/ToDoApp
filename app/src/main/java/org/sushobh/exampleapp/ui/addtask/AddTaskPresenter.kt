@@ -6,15 +6,14 @@ import org.sushobh.exampleapp.AddTaskActivity
 import org.sushobh.exampleapp.Base.BasePresenter
 import org.sushobh.exampleapp.R
 
-class AddTaskPresenter : BasePresenter<AddTaskActivity> {
+class AddTaskPresenter : BasePresenter<AddTaskActivity,AddTaskViewModel> {
 
 
-    lateinit var addTaskViewModel: AddTaskViewModel
+
      var etDate : EditText? = null
 
     constructor(addTaskActivity: AddTaskActivity,addTaskViewModel: AddTaskViewModel) :
             super(addTaskActivity,addTaskViewModel) {
-        this.addTaskViewModel = addTaskViewModel
     }
 
     fun setDateText(dateText : String){

@@ -8,14 +8,15 @@
         android:layout_height="match_parent"
         tools:context=".ui.main.MainFragment">
 
-    <TextView
-            android:id="@+id/message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="MainFragment"
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/new_task"
+            android:layout_margin="@dimen/floating_action_button_margin"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:src="@drawable/ic_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

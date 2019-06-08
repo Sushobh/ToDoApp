@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_margin="@dimen/add_task_fragment_margin"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -30,7 +31,9 @@
             app:layout_constraintStart_toStartOf="parent"
           />
 
-    <Button
+    <Button android:background="@color/colorPrimary"
+            android:textAlignment="center"
+            android:textColor="@color/button_text_color"
             android:layout_marginBottom="@dimen/add_task_element_bottom_margin"
             android:focusable="false"
             android:id="@+id/button_add_task"
