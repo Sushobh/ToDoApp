@@ -48,6 +48,7 @@ class MainViewModel : BaseViewModel<MainPresenter>() {
                                 tasks.add(toDoTask)
                             }
                     })
+                    tasks.sortByDescending { it.timeStamp }
                     taskLiveData.value = tasks
                 }
             })
@@ -61,6 +62,7 @@ class MainViewModel : BaseViewModel<MainPresenter>() {
     fun clickedOnTask(adapterPosition: Int) {
          var task =  tasks[adapterPosition].copy()
          task.completed = !task.completed
+         task.timeStamp = Util.getCurrentTimeStamp()
          taskModel.updateTask(task)
     }
 

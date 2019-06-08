@@ -41,12 +41,14 @@ class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.MyViewHolder> {
         holder.tvTaskStatus.text = task.statusToDisplay
         holder.tvTaskName.text = task.name
 
-        if(task.completed == true){
+        if(task.completed == false){
             holder.divider.setBackgroundColor(Color.RED)
+            holder.tvTaskName.setTextColor(Color.RED)
         }
         else
         {
             holder.divider.setBackgroundColor(ContextCompat.getColor(holder.divider.context,R.color.colorPrimary))
+            holder.tvTaskName.setTextColor(ContextCompat.getColor(holder.divider.context,R.color.colorPrimary))
         }
     }
 

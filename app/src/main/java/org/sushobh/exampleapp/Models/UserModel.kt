@@ -6,7 +6,7 @@ import org.sushobh.exampleapp.Entity.User
 class UserModel : BaseModel() {
 
     fun getLoggedInUser() : User{
-        return User("1","Sushobh Nadiger");
+        return User("2","Sushobh Nadiger");
 
     }
 
