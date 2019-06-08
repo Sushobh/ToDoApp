@@ -1,9 +1,11 @@
 package org.sushobh.exampleapp.Adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
@@ -38,6 +40,14 @@ class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.MyViewHolder> {
         holder.tvTaskDate.text = task.taskDateToDislplay
         holder.tvTaskStatus.text = task.statusToDisplay
         holder.tvTaskName.text = task.name
+
+        if(task.completed == true){
+            holder.divider.setBackgroundColor(Color.RED)
+        }
+        else
+        {
+            holder.divider.setBackgroundColor(ContextCompat.getColor(holder.divider.context,R.color.colorPrimary))
+        }
     }
 
 
@@ -54,6 +64,9 @@ class TaskListAdapter : RecyclerView.Adapter<TaskListAdapter.MyViewHolder> {
 
             @BindView(R.id.task_status)
             lateinit var tvTaskStatus : TextView
+
+            @BindView(R.id.divider)
+            lateinit var divider : View
 
 
 
